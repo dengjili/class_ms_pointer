@@ -1,26 +1,25 @@
-# 班级档案管理系统 (数组版本)
+# 班级档案管理系统 (指针版本)
 原题目要求是对一个有N个学生的班级，通过该系统实现对该班级学生的基本信息进行录入、
 显示、修改、删除、保存等操作的管理。
 
-`由于个人需要，我单独将项目改造为指针使用版本，掌握上难度较高，有需要的请前往指针版本：` [对应github项目地址]()
+`这个项目为指针使用版本，掌握上难度较高，如果需要难度较低的请前往数组版本：` [对应github项目地址](https://github.com/dengjili/class_ms)
 
 **主要掌握点包括**
 
 * 结构体的使用
-* 数组的使用
+* 指针的使用
 * 增删改查的基本概念
 * 基本算法的使用如：排序、查找算法等
 * 文件的读取、写入
   
 ## 功能点列表
 
-1. 本系统采用一个包含N个数据的结构体数组，每个数据的结构应当包括：学
-号、姓名、性别、年龄、备注。
+1. 本系统采用一个包含指针单链表结构，每个数据的结构应当包括：学
+号、姓名、性别、年龄、备注、指针的next结点。
 2. 本系统显示这样的菜单：
 	* 学生基本信息录入
 		1. 手工录入
 		2. 文件录入
-		3. 手工录入(追加)
 	* 学生基本信息显示
 	* 学生基本信息保存
 	* 学生基本信息删除
@@ -41,9 +40,9 @@
 
 ## 使用
 
-* 压缩包下载： [Download Zip](https://github.com/dengjili/class_ms/archive/master.zip)
+* 压缩包下载： [Download Zip](https://github.com/dengjili/class_ms_pointer/archive/master.zip)
 * 或者git命令下载： 
-  ```git clone git@github.com:dengjili/class_ms.git```
+  ```git clone git@github.com:dengjili/class_ms_pointer.git```
 
 * 项目结构截图
 
