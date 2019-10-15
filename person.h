@@ -3,54 +3,54 @@
 
 typedef struct person
 {
-	// Ñ§ºÅ
+	// å­¦å·
 	int num;
-	// ĞÕÃû
+	// å§“å
 	char name[30];
-	// ĞÔ±ğ
+	// æ€§åˆ«
 	char sex;
-	// ÄêÁä
+	// å¹´é¾„
 	int age;
-	// ±¸×¢
+	// å¤‡æ³¨
 	char remarks[100];
-	// ³É¼¨
+	// æˆç»©
 	float score;
-	// Î²Ö¸Õë
+	// å°¾æŒ‡é’ˆ
 	struct person * next;
 }Person;
 
 #define PERSON_SIZE sizeof(struct person)
 
-// ÊÖ¹¤Â¼Èë
+// æ‰‹å·¥å½•å…¥
 Person * person_add_manual(Person * head);
-// ÎÄ¼şÂ¼Èë
+// æ–‡ä»¶å½•å…¥
 Person * person_add_load_file(Person * head);
 
-// Ñ§Éú»ù±¾ĞÅÏ¢ÏÔÊ¾ 
+// å­¦ç”ŸåŸºæœ¬ä¿¡æ¯æ˜¾ç¤º 
 void person_print(Person * head);
 
-// Ñ§Éú»ù±¾ĞÅÏ¢±£´æ 
+// å­¦ç”ŸåŸºæœ¬ä¿¡æ¯ä¿å­˜ 
 void person_add_save_file(Person * head);
 
-// Ñ§Éú»ù±¾ĞÅÏ¢É¾³ı(°´Ñ§ºÅ)
+// å­¦ç”ŸåŸºæœ¬ä¿¡æ¯åˆ é™¤(æŒ‰å­¦å·)
 Person * person_delete_by_num(Person * head, int num);
 
-// Ñ§Éú»ù±¾ĞÅÏ¢ĞŞ¸Ä£¨ÒªÇóÏÈÊäÈëÃÜÂë£© 
+// å­¦ç”ŸåŸºæœ¬ä¿¡æ¯ä¿®æ”¹ï¼ˆè¦æ±‚å…ˆè¾“å…¥å¯†ç ï¼‰ 
 void person_update_by_num(Person * head, int num);
 
-// Ñ§Éú»ù±¾ĞÅÏ¢²éÑ¯ 
-// °´Ñ§ºÅ²éÑ¯ 
+// å­¦ç”ŸåŸºæœ¬ä¿¡æ¯æŸ¥è¯¢ 
+// æŒ‰å­¦å·æŸ¥è¯¢ 
 void person_query_by_num(Person * head, int num);
 
-// °´ĞÕÃû²éÑ¯ 
+// æŒ‰å§“åæŸ¥è¯¢ 
 void person_query_by_name(Person * head, char name[]);
 
-// Ñ§Éú×Ü·Ö³É¼¨²éÑ¯
-// °´½µĞò²éÑ¯
+// å­¦ç”Ÿæ€»åˆ†æˆç»©æŸ¥è¯¢
+// æŒ‰é™åºæŸ¥è¯¢
 void person_sort_by_score_desc(Person * head);
 Person * sort_desc(Person * head);
 
-// °´ÉıĞò²éÑ¯
+// æŒ‰å‡åºæŸ¥è¯¢
 void person_sort_by_score_asc(Person * head);
 Person * sort_asc(Person * head);
 

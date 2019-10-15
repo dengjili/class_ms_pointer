@@ -1,16 +1,16 @@
 #ifndef _MENU_UI_H_
 #define _MENU_UI_H_
 
-// Ö÷½çÃæ
+// ä¸»ç•Œé¢
 void main_ui();
 
-// ¸öÈËĞÅÏ¢Â¼Èë
+// ä¸ªäººä¿¡æ¯å½•å…¥
 void person_add_ui();
 
-// ¸öÈËĞÅÏ¢Ò³Ãæ
+// ä¸ªäººä¿¡æ¯é¡µé¢
 void person_info_ui();
 
-// ³É¼¨²éÑ¯Ò³Ãæ
+// æˆç»©æŸ¥è¯¢é¡µé¢
 void score_ui();
 
 #endif

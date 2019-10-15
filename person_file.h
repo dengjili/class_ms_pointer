@@ -3,9 +3,9 @@
 #ifndef _PERSON_FILE_H_
 #define _PERSON_FILE_H_
 
-// ´ÓÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ
+// ä»æ–‡ä»¶ä¸­è¯»å–æ•°æ®
 Person * load(Person * head);
-// ±£´æÊı¾İµ½ÎÄ¼ş
+// ä¿å­˜æ•°æ®åˆ°æ–‡ä»¶
 void save(Person * head);
 
 #endif

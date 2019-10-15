@@ -3,7 +3,7 @@
 #include "global.h"
 #include "person_file.h"
 
-// ´ÓÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ
+// ä»æ–‡ä»¶ä¸­è¯»å–æ•°æ®
 Person * load(Person * head)
 {
 	FILE * fp;
@@ -19,7 +19,7 @@ Person * load(Person * head)
 	fp = fopen("person.dat", "rb");
 	if (fp == NULL)
 	{
-		printf("¶ÁÈ¡ÎÄ¼şperson.datÊ§°Ü£¬ÍË³öµ±Ç°³ÌĞò\n");
+		printf("è¯»å–æ–‡ä»¶person.datå¤±è´¥ï¼Œé€€å‡ºå½“å‰ç¨‹åº\n");
 		exit(-1);
 	}
 
@@ -27,14 +27,14 @@ Person * load(Person * head)
 	{
 		Person * node = (Person *) malloc(PERSON_SIZE);
 
-		// ÖÕÖ¹
+		// ç»ˆæ­¢
 		if (fread(node, sizeof(Person), 1, fp) != TRUE)
 		{
 			free(node);
 			break;
 		}
 
-		// ¿ÕÁ´±í
+		// ç©ºé“¾è¡¨
 		if (head == NULL)
 		{
 			head = node;
@@ -46,15 +46,15 @@ Person * load(Person * head)
 			tail = node;
 		}
 	} while(TRUE);
-	// Ä©½ÚµãÖ¸ÕëÊÖ¶¯ÖÃÎªNULL
+	// æœ«èŠ‚ç‚¹æŒ‡é’ˆæ‰‹åŠ¨ç½®ä¸ºNULL
 	tail->next = NULL;
 	fclose(fp);
 
-	printf("\n\n³É¹¦´ÓÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ.\n\n");
+	printf("\n\næˆåŠŸä»æ–‡ä»¶ä¸­è¯»å–æ•°æ®.\n\n");
 	return head;
 }
 
-// ±£´æÊı¾İµ½ÎÄ¼ş
+// ä¿å­˜æ•°æ®åˆ°æ–‡ä»¶
 void save(Person * head)
 {
 	Person * node = head;
@@ -68,7 +68,7 @@ void save(Person * head)
 	fp = fopen("person.dat", "wb");
 	if (fp == NULL)
 	{
-		printf("ÎÄ¼şperson.dat´´½¨Ê§°Ü£¬ÍË³öµ±Ç°³ÌĞò\n");
+		printf("æ–‡ä»¶person.datåˆ›å»ºå¤±è´¥ï¼Œé€€å‡ºå½“å‰ç¨‹åº\n");
 		exit(-1);
 	}
 
@@ -80,5 +80,5 @@ void save(Person * head)
 	
 	fclose(fp);
 
-	printf("³É¹¦±£´æÊı¾İµ½ÎÄ¼ş\n");
+	printf("æˆåŠŸä¿å­˜æ•°æ®åˆ°æ–‡ä»¶\n");
 }

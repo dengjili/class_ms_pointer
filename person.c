@@ -16,21 +16,21 @@ Person * person_add_manual(Person * head)
 		}
 	}
 
-	printf("��¼��ѧ�� ���� �Ա� ���� ��ע �ɼ�(ѧ��С��0��ֹ)\n");
+	printf("请录入学号 姓名 性别 年龄 备注 成绩(学号小于0终止)\n");
 	do
 	{
 		Person * node = (Person *) malloc(PERSON_SIZE);
-		printf("��¼��ѧ����Ϣ��");
+		printf("请录入学生信息：");
 		scanf("%d %s %c %d %s %f", &node->num, node->name, &node->sex, &node->age, node->remarks, &node->score);
 	
-		// ��ֹ
+		// 终止
 		if (node->num <= 0)
 		{
 			free(node);
 			break;
 		}
 
-		// ������
+		// 空链表
 		if (head == NULL)
 		{
 			head = node;
@@ -43,7 +43,7 @@ Person * person_add_manual(Person * head)
 		}
 	} while(TRUE);
 
-	// ĩ�ڵ�ָ���ֶ���ΪNULL
+	// 末节点指针手动置为NULL
 	tail->next = NULL;
 	return head;
 }
@@ -59,11 +59,11 @@ void person_print(Person * head)
 
 	if (node == NULL)
 	{
-		printf("\n\nδ¼��ѧ������\n\n");
+		printf("\n\n未录入学生数据\n\n");
 		return;
 	}
 
-	printf("%-10s%-10s%-10s%-10s%-20s%-10s\n", "ѧ��", "����", "�Ա�", "����", "��ע", "�ɼ�");
+	printf("%-10s%-10s%-10s%-10s%-20s%-10s\n", "学号", "姓名", "性别", "年龄", "备注", "成绩");
 	while (node != NULL)
 	{
 		printf("%-10d%-10s%-10c%-10d%-20s%-10.1f\n", node->num, node->name, node->sex, node->age, node->remarks, node->score);
@@ -82,7 +82,7 @@ Person * person_delete_by_num(Person * head, int num)
 
 	if (node == NULL)
 	{
-		printf("\n\nδ¼��ѧ������\n\n");
+		printf("\n\n未录入学生数据\n\n");
 		return NULL;
 	}
 
@@ -91,27 +91,27 @@ Person * person_delete_by_num(Person * head, int num)
 		front = head;
 	}
 
-	// δ�ҵ�ɾ���ڵ�
+	// 未找到删除节点
 	if (node == NULL)
 	{
-		printf("\n\n��ǰ�����У�û��ѧ�ţ�%d����˶�\n\n", num);
+		printf("\n\n当前数据中，没有学号：%d，请核对\n\n", num);
 		return NULL;
 	}
 
-	// ɾ���ڵ�
+	// 删除节点
 
-	// 1. ͷ���
+	// 1. 头结点
 	if (node == head)
 	{
 		head = node->next;
 	}
-	// .β�ڵ����м���,ɾ���߼�һ��,�ϲ�
+	// .尾节点与中间结点,删除逻辑一致,合并
 	else
 	{
 		front->next = node->next;
 	}
 	free(node);
-	printf("\n\n�ɹ�ɾ��ѧ�ţ�%d\n\n", num);
+	printf("\n\n成功删除学号：%d\n\n", num);
 
 	return head;
 }
@@ -122,7 +122,7 @@ void person_update_by_num(Person * head, int num)
 
 	if (node == NULL)
 	{
-		printf("\n\nδ¼��ѧ������\n\n");
+		printf("\n\n未录入学生数据\n\n");
 		return;
 	}
 
@@ -131,18 +131,18 @@ void person_update_by_num(Person * head, int num)
 		node = node->next;
 	}
 
-	// ���δ�ҵ�
+	// 如果未找到
 	if (node == NULL)
 	{
-		printf("\n\n��ǰ�����У�û��ѧ�ţ�%d����˶�\n\n", num);
+		printf("\n\n当前数据中，没有学号：%d，请核对\n\n", num);
 		return;
 	}
 
-	// ����ҵ�����ô�����ƶ�λ�ã����ҵ�����ʼ��i + 1 = i
-	printf("������¼�� ���� �Ա� ���� ��ע �ɼ���");
+	// 如果找到，那么数组移动位置，从找到处开始：i + 1 = i
+	printf("请重新录入 姓名 性别 年龄 备注 成绩：");
 	scanf("%s %c %d %s %f", node->name, &node->sex, &node->age, node->remarks, &node->score);
 
-	printf("\n\n�ɹ��޸�ѧ�ţ�%d\n\n", num);
+	printf("\n\n成功修改学号：%d\n\n", num);
 }
 
 void person_query_by_num(Person * head, int num)
@@ -154,15 +154,15 @@ void person_query_by_num(Person * head, int num)
 		node = node->next;
 	}
 
-	// ���δ�ҵ�
+	// 如果未找到
 	if (node == NULL)
 	{
-		printf("\n\n��ǰ�����У�û��ѧ�ţ�%d����˶�\n\n", num);
+		printf("\n\n当前数据中，没有学号：%d，请核对\n\n", num);
 		return;
 	}
 
-	// ����ҵ������
-	printf("%-10s%-10s%-10s%-10s%-20s%-10s\n", "ѧ��", "����", "�Ա�", "����", "��ע", "�ɼ�");
+	// 如果找到，输出
+	printf("%-10s%-10s%-10s%-10s%-20s%-10s\n", "学号", "姓名", "性别", "年龄", "备注", "成绩");
 	printf("%-10d%-10s%-10c%-10d%-20s%-10.1f\n", node->num, node->name, node->sex, node->age, node->remarks, node->score);
 }
 
@@ -175,15 +175,15 @@ void person_query_by_name(Person * head, char name[])
 		node = node->next;
 	}
 
-	// ���δ�ҵ�
+	// 如果未找到
 	if (node == NULL)
 	{
-		printf("\n\n��ǰ�����У�û��������%s����˶�\n\n", name);
+		printf("\n\n当前数据中，没有姓名：%s，请核对\n\n", name);
 		return;
 	}
 
-	// ����ҵ������
-	printf("%-10s%-10s%-10s%-10s%-20s%-10s\n", "ѧ��", "����", "�Ա�", "����", "��ע", "�ɼ�");
+	// 如果找到，输出
+	printf("%-10s%-10s%-10s%-10s%-20s%-10s\n", "学号", "姓名", "性别", "年龄", "备注", "成绩");
 	printf("%-10d%-10s%-10c%-10d%-20s%-10.1f\n", node->num, node->name, node->sex, node->age, node->remarks, node->score);
 }
 
@@ -193,21 +193,21 @@ void person_sort_by_score_desc(Person * head)
 
 	if (node == NULL)
 	{
-		printf("\n\nδ¼��ѧ������\n\n");
+		printf("\n\n未录入学生数据\n\n");
 		return;
 	}
 
-	// 1. ����
+	// 1. 拷贝
 	copy_head = copy_linked(head);
-	// . ����ѡ������
+	// . 排序（选择排序）
 	copy_head = sort_desc(copy_head);
-	// 3. ���
+	// 3. 输出
 	person_print(copy_head);
 
 	free_linked(copy_head);
 }
 
-// ���򣨲��ñ���+�����ؽ���ʽ��
+// 排序（采用遍历+链表重建方式）
 Person * sort_desc(Person * head)
 {
 	Person * max, * front_max, * node, * front_node, * sort_head = NULL, * sort_tail;
@@ -223,7 +223,7 @@ Person * sort_desc(Person * head)
 			}
 		}
 
-		// 1. �����µ�sort_head
+		// 1. 构建新的sort_head
 		if (sort_head == NULL)
 		{
 			sort_head =  max;
@@ -235,7 +235,7 @@ Person * sort_desc(Person * head)
 			sort_tail = max;
 		}
 
-		// . ��head�����е�max�ڵ��Ƴ���
+		// . 将head链表中的max节点移除掉
 		if (max == head)
 		{
 			head = NULL;
@@ -255,15 +255,15 @@ void person_sort_by_score_asc(Person * head)
 
 	if (node == NULL)
 	{
-		printf("\n\nδ¼��ѧ������\n\n");
+		printf("\n\n未录入学生数据\n\n");
 		return;
 	}
 
-	// 1. ����
+	// 1. 拷贝
 	copy_head = copy_linked(head);
-	// . ����ѡ������
+	// . 排序（选择排序）
 	copy_head = sort_asc(copy_head);
-	// 3. ���
+	// 3. 输出
 	person_print(copy_head);
 
 	free_linked(copy_head);
@@ -284,7 +284,7 @@ Person * sort_asc(Person * head)
 			}
 		}
 
-		// 1. �����µ�sort_head
+		// 1. 构建新的sort_head
 		if (sort_head == NULL)
 		{
 			sort_head =  max;
@@ -296,7 +296,7 @@ Person * sort_asc(Person * head)
 			sort_tail = max;
 		}
 
-		// . ��head�����е�max�ڵ��Ƴ���
+		// . 将head链表中的max节点移除掉
 		if (max == head)
 		{
 			head = head->next;
@@ -316,17 +316,17 @@ Person * copy_linked(Person * head)
 
 	if (node == NULL)
 	{
-		printf("\n\nδ¼��ѧ������\n\n");
+		printf("\n\n未录入学生数据\n\n");
 		return NULL;
 	}
 
-	// 1. ����
+	// 1. 拷贝
 	while (node != NULL)
 	{
 		copy_node = (Person *) malloc(PERSON_SIZE);
 		* copy_node = * node;
 
-		// ������
+		// 空链表
 		if (copy_head == NULL)
 		{
 			copy_head = copy_node;
@@ -340,7 +340,7 @@ Person * copy_linked(Person * head)
 		node = node->next;
 	}
 
-	// ĩ�ڵ�ָ���ֶ���ΪNULL
+	// 末节点指针手动置为NULL
 	copy_tail->next = NULL;
 	return copy_head;
 }
@@ -358,7 +358,7 @@ void free_linked(Person * head)
 	{
 		front = node;
 		node = node->next;
-		// �����ͷŽ��
+		// 依次释放结点
 		free(front);
 	}
 }

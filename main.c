@@ -4,21 +4,21 @@
 #include "menu_ui.h"
 #include "person.h"
 
-// ÊäÈëÖµ
+// è¾“å…¥å€¼
 int input();
 void input_string(char str[]);
-// ´íÎóÊäÈëÌáÊ¾
+// é”™è¯¯è¾“å…¥æç¤º
 void input_error_show();
 
 int main()
 {
 	Person * head = NULL;
 
-	// Ö÷½çÃæÊäÈëÏî
+	// ä¸»ç•Œé¢è¾“å…¥é¡¹
 	int choice, len = 0, working;
 	char choice_name[30];
 
-	// ³ÌĞòÊÇ·ñÔËĞĞ(1ÊÇÔËĞĞ£¬0ÊÇÖÕÖ¹)
+	// ç¨‹åºæ˜¯å¦è¿è¡Œ(1æ˜¯è¿è¡Œï¼Œ0æ˜¯ç»ˆæ­¢)
 	int is_runing = RUNNING;
 
 	while (is_runing)
@@ -57,12 +57,12 @@ int main()
 			person_add_save_file(head);
 			break;
 		case 4:
-			printf("Ñ§Éú»ù±¾ĞÅÏ¢É¾³ı£¨°´Ñ§ºÅÉ¾³ı£©");
+			printf("å­¦ç”ŸåŸºæœ¬ä¿¡æ¯åˆ é™¤ï¼ˆæŒ‰å­¦å·åˆ é™¤ï¼‰");
 			choice = input();
 			head = person_delete_by_num(head, choice);
 			break;
 		case 5:
-			printf("Ñ§Éú»ù±¾ĞÅÏ¢ĞŞ¸Ä£¨Ñ¡ÔñĞèÒªĞŞ¸ÄµÄÑ§ºÅ£©");
+			printf("å­¦ç”ŸåŸºæœ¬ä¿¡æ¯ä¿®æ”¹ï¼ˆé€‰æ‹©éœ€è¦ä¿®æ”¹çš„å­¦å·ï¼‰");
 			choice = input();
 			person_update_by_num(head, choice);
 			break;
@@ -75,12 +75,12 @@ int main()
 				switch (choice) 
 				{
 				case 1:
-					printf("Ñ§Éú»ù±¾ĞÅÏ¢²éÑ¯£¨°´Ñ§ºÅ²éÑ¯£©");
+					printf("å­¦ç”ŸåŸºæœ¬ä¿¡æ¯æŸ¥è¯¢ï¼ˆæŒ‰å­¦å·æŸ¥è¯¢ï¼‰");
 					choice = input();
 					person_query_by_num(head, choice);
 					break;
 				case 2:
-					printf("Ñ§Éú»ù±¾ĞÅÏ¢²éÑ¯£¨°´Ñ§ºÅ²éÑ¯£©");
+					printf("å­¦ç”ŸåŸºæœ¬ä¿¡æ¯æŸ¥è¯¢ï¼ˆæŒ‰å­¦å·æŸ¥è¯¢ï¼‰");
 					input_string(choice_name);
 					person_query_by_name(head, choice_name);
 					break;
@@ -122,17 +122,17 @@ int main()
 		}
 	}
 
-	printf("\n\nÒÑÍË³ö...\n\n");
+	printf("\n\nå·²é€€å‡º...\n\n");
 
 	return 0;
 }
 
 int input()
 {
-	// ÊäÈëÏî
+	// è¾“å…¥é¡¹
 	int num;
 
-	printf("\n\nÇëÑ¡Ôñ£º");
+	printf("\n\nè¯·é€‰æ‹©ï¼š");
 	scanf("%d", &num);
 
 	return num;
@@ -140,12 +140,12 @@ int input()
 
 void input_string(char str[])
 {
-	printf("\n\nÇëÊäÈë£º");
+	printf("\n\nè¯·è¾“å…¥ï¼š");
 	scanf("%s", str);
 }
 
 void input_error_show()
 {
-	printf("\n\nÄãÊäÈëµÄÖ¸Áî·Ç·¨£¬ÇëÖØĞÂÑ¡Ôñ£¨°´ÈÎÒâ¼ü¼ÌĞø£©\n\n");
+	printf("\n\nä½ è¾“å…¥çš„æŒ‡ä»¤éæ³•ï¼Œè¯·é‡æ–°é€‰æ‹©ï¼ˆæŒ‰ä»»æ„é”®ç»§ç»­ï¼‰\n\n");
 	system("pause");
 }

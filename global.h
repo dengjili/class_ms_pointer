@@ -1,13 +1,13 @@
 #ifndef _GLOBAL_H_
 #define _GLOBAL_H_
 
-// Ñ§Éú»ù±¾ĞÅÏ¢ĞŞ¸ÄÄ¬ÈÏÃÜÂë
+// å­¦ç”ŸåŸºæœ¬ä¿¡æ¯ä¿®æ”¹é»˜è®¤å¯†ç 
 #define PASSWORD admin
 
 #define TRUE 1
 #define FALSE 0
 
-// ³ÌĞòÊÇ·ñÔËĞĞ(1ÊÇÔËĞĞ£¬0ÊÇÖÕÖ¹)
+// ç¨‹åºæ˜¯å¦è¿è¡Œ(1æ˜¯è¿è¡Œï¼Œ0æ˜¯ç»ˆæ­¢)
 #define RUNNING 1
 #define STOP 0
 
